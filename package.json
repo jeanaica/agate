@@ -1,6 +1,9 @@
 {
   "name": "agate",
   "version": "0.1.0",
+  "description": "This is the repository for Life in Peach blog",
+  "license": "AGPL-3.0",
+  "author": "Jeanaica Suplido-Alinsub",
   "private": true,
   "scripts": {
     "dev": "next dev",
