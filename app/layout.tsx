@@ -1,10 +1,9 @@
 import 'material-icons/iconfont/material-icons.css';
-import { roboto_mono, poppins } from '../styles/fonts';
-import './globals.css';
 
-import { ThemeProvider } from '@/context/ThemeContext';
-import Header from '@/components/Header';
-import Nav from '@/components/Nav';
+import { epilogue, marcellus } from '@/styles/fonts';
+import '@/styles/globals.css';
+
+import Providers from '@/components/providers/Providers';
 
 export const metadata = {
   title: 'Life in Peach',
@@ -18,18 +17,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <ThemeProvider>
-      <html lang='en' className={`${poppins.variable} ${roboto_mono.variable}`}>
-        <body className='bg-gradient-to-b from-white to-peach-200 dark:from-midnight-900 dark:to-midnight-600'>
-          <div className='flex flex-col justify-center items-center'>
-            <Nav />
-            <div id='content' className='w-5/6 md:w-3/5 lg:w-1/2'>
-              <Header />
-              {children}
-            </div>
-          </div>
-        </body>
-      </html>
-    </ThemeProvider>
+    <html lang='en' className={`${epilogue.variable} ${marcellus.variable}`}>
+      <body className='min-h-screen bg-gradient-to-b from-white to-peach-100 dark:from-midnight-900 dark:to-midnight-600 overflow-x-hidden'>
+        <Providers>{children}</Providers>
+      </body>
+    </html>
   );
 }
