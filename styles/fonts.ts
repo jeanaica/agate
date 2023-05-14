@@ -1,19 +1,13 @@
-import { Poppins, Roboto_Mono, Clicker_Script } from 'next/font/google';
+import { Epilogue, Marcellus } from 'next/font/google';
 
-export const roboto_mono = Roboto_Mono({
+export const epilogue = Epilogue({
   subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-roboto-mono',
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+  variable: '--font-epilogue',
 });
 
-export const poppins = Poppins({
-  subsets: ['latin'],
-  weight: ['200', '300', '400', '500', '600'],
-  variable: '--font-poppins',
-});
-
-export const clickerScript = Clicker_Script({
+export const marcellus = Marcellus({
   subsets: ['latin'],
   weight: ['400'],
-  variable: '--font-clicker-script',
+  variable: '--font-marcellus',
 });

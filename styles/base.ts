@@ -6,15 +6,15 @@ export const getColor = (color: string): Record<string, unknown> => ({
   color,
 });
 
-export const aStyles = (color: string): Record<string, unknown> => ({
-  color,
-  fontWeight: 500,
+export const aStyles = (theme: ThemeType): Record<string, unknown> => ({
+  fontFamily: theme('fontFamily.sans'),
+  color: theme('colors.midnight.DEFAULT'),
+  fontWeight: 900,
   cursor: 'pointer',
-  fontStyle: 'italic',
 });
 
 export const aHoverStyles = {
-  textDecoration: 'underline',
+  textDecoration: 'no-underline',
 };
 
 export const generateHeaderStyles = (
@@ -23,19 +23,19 @@ export const generateHeaderStyles = (
   const headerStyles: Record<string, unknown> = {};
 
   const headerFontSizes: Record<string, unknown> = {
-    h1: theme('fontSize.4xl'),
-    h2: theme('fontSize.2xl'),
-    h3: theme('fontSize.xl'),
-    h4: theme('fontSize.lg'),
-    h5: theme('fontSize.base'),
+    h1: theme('fontSize.5xl'),
+    h2: theme('fontSize.3xl'),
+    h3: theme('fontSize.2xl'),
+    h4: theme('fontSize.xl'),
+    h5: theme('fontSize.lg'),
   };
 
   for (const headerTag in headerFontSizes) {
     headerStyles[headerTag] = {
       fontSize: headerFontSizes[headerTag],
       fontWeight: theme('fontWeight.semibold'),
+      fontFamily: theme('fontFamily.sans'),
       color: theme('colors.midnight.900'),
-      letterSpacing: 4,
       lineHeight: headerFontSizes[headerTag],
     };
   }
@@ -52,7 +52,7 @@ export const generateDarkHeaderStyles = (
 
   for (const headerTag of headerTags) {
     darkHeaderStyles[`.dark ${headerTag}`] = {
-      color: theme('colors.peach.DEFAULT'),
+      color: theme('colors.peach.100'),
     };
   }
 

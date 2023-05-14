@@ -1,6 +1,5 @@
 'use client';
 
-import { setTheme } from '@/utils/themes';
 import {
   createContext,
   useContext,
@@ -8,6 +7,8 @@ import {
   ReactNode,
   useEffect,
 } from 'react';
+
+import { setTheme } from '@/components/theme/setTheme';
 
 type Theme = 'light' | 'dark';
 type ThemeContextType = {

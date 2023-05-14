@@ -10,7 +10,7 @@ import {
 } from './styles/base';
 
 module.exports = {
-  darkMode: ['class', '[data-mode="dark"]'],
+  darkMode: ['class'],
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
@@ -48,10 +48,10 @@ module.exports = {
         },
       },
       fontFamily: {
-        sans: ['var(--font-poppins)'],
-        mono: ['var(--font-roboto-mono)'],
-        poppins: ['Poppins', 'sans-serif'],
-        robotoMono: ['Roboto_Mono', 'sans-serif'],
+        serif: ['var(--font-marcellus)'],
+        sans: ['var(--font-epilogue)'],
+        marcellus: ['Marcellus', 'serif'],
+        epilogue: ['Epilogue', 'sans-serif'],
       },
     },
   },
@@ -61,17 +61,20 @@ module.exports = {
       const darkHeaderStyles = generateDarkHeaderStyles(theme);
 
       addBase({
-        a: aStyles(theme('colors.midnight.DEFAULT')),
+        a: aStyles(theme),
         'a:hover': aHoverStyles,
         '.dark a': getColor(theme('colors.peach.600')),
         body: {
-          color: theme('colors.midnight.800'),
-          fontFamily: theme('fontFamily.poppins'),
-          letterSpacing: 4,
-          lineHeight: '2rem',
-          textAlign: 'justify',
+          color: theme('colors.midnight.900'),
+          fontFamily: theme('fontFamily.serif'),
+          fontSize: theme('fontSize.xl'),
+          lineHeight: '2em',
         },
-        '.dark body': getColor(theme('colors.peach.800')),
+        '.dark body': getColor(theme('colors.peach.100')),
+        p: {
+          textAlign: 'justify',
+          hyphens: 'auto',
+        },
         ...headerStyles,
         ...darkHeaderStyles,
       });
