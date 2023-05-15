@@ -2,11 +2,6 @@
 import { FC, useEffect, useRef, useState } from 'react';
 import { usePathname } from 'next/navigation';
 
-import Title from '@/components/title/Title';
-import ThemeToggle from '@/components/theme/ThemeToggle';
-import Icon from '@/components/icon/Icon';
-import Header from '@/components/header/Header';
-
 import useDetectOutsideClick from '@/utils/hooks/useDetectOutsideClick';
 
 import MobileNav from './MobileNav';

@@ -1,4 +1,4 @@
-const formatDate = (dateValue?: string | Date) => {
+const formatDate = (dateValue?: string | number | Date) => {
   let date = new Date();
 
   if (dateValue) {

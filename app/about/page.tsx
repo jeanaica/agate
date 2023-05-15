@@ -1,7 +1,21 @@
+import { openGraph, twitter } from '../shared-metadata';
+
+export const metadata = {
+  title: 'About',
+  openGraph: {
+    ...openGraph,
+    title: 'About',
+  },
+  twitter: {
+    ...twitter,
+    title: 'About',
+  },
+};
+
 export default function About() {
   return (
-    <main className='flex h-full flex-col items-center justify-between py-16 gap-5'>
-      <h3 className='mb-8'>About</h3>
+    <main className='flex flex-col items-center justify-between py-16'>
+      <h3 className='mb-8 font-black'>About</h3>
 
       <p>
         Hello and welcome to{' '}
