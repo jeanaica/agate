@@ -15,7 +15,7 @@ export const metadata = {
 export default function About() {
   return (
     <main className='flex flex-col items-center justify-between py-16'>
-      <h3 className='mb-8 font-black'>About</h3>
+      <h2 className='mb-8 font-black'>About</h2>
 
       <p>
         Hello and welcome to{' '}
