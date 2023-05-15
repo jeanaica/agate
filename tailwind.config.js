@@ -72,8 +72,10 @@ module.exports = {
         },
         '.dark body': getColor(theme('colors.peach.100')),
         p: {
+          fontSize: theme('fontSize.base'),
           textAlign: 'justify',
           hyphens: 'auto',
+          margin: '2rem 0',
         },
         ...headerStyles,
         ...darkHeaderStyles,
