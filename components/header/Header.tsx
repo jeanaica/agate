@@ -15,7 +15,7 @@ const Header: FC<Props> = ({ asLink, className }) => {
   return (
     <div className={`flex flex-col ${pageStyle} ${className}`}>
       <Title asLink={asLink} />
-      <h5 className={`font-light ${asLink ? 'text-sm' : 'mt-4'}`}>
+      <h5 className={`font-light font-serif ${asLink ? 'text-sm' : 'mt-4'}`}>
         The Sweet, The Tangy, and The Unexpected
       </h5>
     </div>

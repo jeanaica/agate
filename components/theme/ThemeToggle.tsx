@@ -34,7 +34,7 @@ const ThemeToggle: React.FC = () => {
   }, [theme]);
 
   return (
-    <div className='flex justify-center self-center items-center h-8 p-4 cursor-pointer select-none'>
+    <div className='flex justify-center self-center items-center h-8 p-4 pr-0 cursor-pointer select-none'>
       <input
         aria-label='dark mode toggle'
         role='switch'

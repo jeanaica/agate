@@ -60,44 +60,14 @@ const Nav: FC = () => {
   return (
     <nav
       ref={navRef}
-      className={` flex flex-col md:flex-row md:justify-between md:items-center w-full ${
+      className={`w-full flex justify-center items-center flex-col md:flex-row md:justify-between md:items-center  ${
         menuOpen
           ? 'bg-peach-100 dark:bg-midnight-700'
           : 'bg-white dark:bg-midnight-900'
       }`}
     >
-      {!isHome && (
-        <div className='hidden md:block'>
-          <Header asLink={!isHome} className='pl-5' />
-        </div>
-      )}
-      <MobileNav isOpen={menuOpen} />
-      <DesktopNav />
-      <div className={`flex justify-between`}>
-        <div className={`flex justify-start`}>
-          <button
-            className='flex flex-1 justify-center items-center pl-4 md:hidden'
-            onClick={toggleMenu}
-          >
-            <Icon icon='menu' type='round' />
-          </button>
-          {!isHome && (
-            <div className='p-4 md:hidden'>
-              <Title asLink={!isHome} />
-            </div>
-          )}
-        </div>
-
-        <div className='flex'>
-          <button
-            className='flex flex-1 justify-center items-center p-4'
-            onClick={toggleMenu}
-          >
-            <Icon icon='search' type='round' />
-          </button>
-          <ThemeToggle />
-        </div>
-      </div>
+      <MobileNav isHome={isHome} isOpen={menuOpen} setIsOpen={toggleMenu} />
+      <DesktopNav isHome={isHome} isOpen={menuOpen} setIsOpen={toggleMenu} />
     </nav>
   );
 };

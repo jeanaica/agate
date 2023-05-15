@@ -1,8 +1,8 @@
 import { FC } from 'react';
 
 const Footer: FC = () => (
-  <footer id='footer' className='flex justify-center mt-auto py-4'>
-    <span className='text-xs text-center'>
+  <footer id='footer' className='flex justify-center mt-auto py-4 w-full'>
+    <span className='text-xs text-center w-5/6 md:w-4/5 lg:w-2/3'>
       Copyright ©2023 Jeanaica Suplido-Alinsub. All rights reserved.
       <br />
       Unless otherwise noted, all code snippets are available under the{' '}
