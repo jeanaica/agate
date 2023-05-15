@@ -22,7 +22,7 @@ const Banner: React.FC<BannerProps> = ({ src, alt }) => {
 
       <Image
         src={src}
-        alt={alt}
+        alt={alt || ''}
         className='object-contain backdrop-blur-xl  bg-peach-300/40 dark:bg-midnight-300/40'
         sizes='(max-width: 768px) 100vw'
         fill
