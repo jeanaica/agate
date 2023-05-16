@@ -56,6 +56,7 @@ module.exports = {
     },
   },
   plugins: [
+    require('@tailwindcss/typography'),
     plugin(function ({ addBase, theme }) {
       const headerStyles = generateHeaderStyles(theme);
       const darkHeaderStyles = generateDarkHeaderStyles(theme);
@@ -75,7 +76,6 @@ module.exports = {
           fontSize: theme('fontSize.base'),
           textAlign: 'justify',
           hyphens: 'auto',
-          margin: '2rem 0',
         },
         ...headerStyles,
         ...darkHeaderStyles,

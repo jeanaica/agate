@@ -1,4 +1,6 @@
-import { Metadata, ResolvingMetadata } from 'next';
+import { Metadata } from 'next';
+import { JSDOM } from 'jsdom';
+import DOMPurify from 'dompurify';
 
 import { apolloClient } from '@/lib/client';
 
@@ -88,6 +90,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function Page({ params }: Props) {
   const { loading, meta, post, error } = await getData(params.slug);
+  let clean = '';
+
+  const window = new JSDOM('').window;
+  const purify = DOMPurify(window);
+
+  if (post?.content) {
+    clean = purify.sanitize(post?.content, {
+      USE_PROFILES: { html: true },
+    });
+  }
 
   if (loading) {
     return <LoadingScreen />;
@@ -98,19 +110,22 @@ export default async function Page({ params }: Props) {
   }
 
   return (
-    <main className='flex flex-col items-center gap-5'>
+    <main className='flex flex-col items-center gap-5 mb-28'>
       {post?.banner && <Banner src={post?.banner} alt={meta?.imageAlt} />}
       <div
-        className={`flex flex-col items-center my-8 ${
+        className={`flex flex-col text-center items-center my-8 ${
           !post?.banner ? 'mt-16' : ''
         }`}
       >
         <h1 className='font-black'>{post?.title}</h1>
-        <span className='text-sm'>{formatDate(post?.publishedAt)}</span>
+        <span className='text-sm opacity-50'>
+          {formatDate(post?.publishedAt)}
+        </span>
       </div>
-      <div
-        className='min-h-[300px]'
-        dangerouslySetInnerHTML={{ __html: post?.content || '' }}
+      <article
+        className='min-h-[300px] mt-12 w-full prose dark:prose-invert prose-pre:whitespace-pre-wrap prose-pre:break-words prose-pre:overflow-x-hidden
+        prose-p:mb-12'
+        dangerouslySetInnerHTML={{ __html: clean }}
       />
     </main>
   );

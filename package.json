@@ -17,10 +17,12 @@
     "@types/react": "18.2.6",
     "@types/react-dom": "18.2.4",
     "autoprefixer": "10.4.14",
+    "dompurify": "^3.0.3",
     "eslint": "8.40.0",
     "eslint-config-next": "13.4.1",
     "framer-motion": "10.12.10",
     "graphql": "16.6.0",
+    "jsdom": "^22.0.0",
     "material-icons": "1.13.6",
     "next": "13.4.1",
     "postcss": "8.4.23",
@@ -28,5 +30,10 @@
     "react-dom": "18.2.0",
     "tailwindcss": "3.3.2",
     "typescript": "5.0.4"
+  },
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.9",
+    "@types/dompurify": "^3.0.2",
+    "@types/jsdom": "^21.1.1"
   }
 }
