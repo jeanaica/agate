@@ -13,6 +13,7 @@ async function Home() {
   const { loading, data } = await apolloClient.query({
     query: GET_ARTICLES_QUERY,
     fetchPolicy: 'no-cache',
+    variables: { status: 'PUBLISHED' },
   });
 
   if (loading) {

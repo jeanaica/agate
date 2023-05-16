@@ -98,14 +98,18 @@ export default async function Page({ params }: Props) {
   }
 
   return (
-    <main className='flex min-h-screen flex-col items-center gap-5'>
-      <Banner src={post?.banner} alt={meta?.imageAlt} />
-      <div className='flex flex-col items-center my-8'>
+    <main className='flex flex-col items-center gap-5'>
+      {post?.banner && <Banner src={post?.banner} alt={meta?.imageAlt} />}
+      <div
+        className={`flex flex-col items-center my-8 ${
+          !post?.banner ? 'mt-16' : ''
+        }`}
+      >
         <h1 className='font-black'>{post?.title}</h1>
         <span className='text-sm'>{formatDate(post?.publishedAt)}</span>
       </div>
       <div
-        className='min-h-[500px]'
+        className='min-h-[300px]'
         dangerouslySetInnerHTML={{ __html: post?.content || '' }}
       />
     </main>

@@ -14,7 +14,7 @@ const Footer: FC = () => (
           target='_blank'
           referrerPolicy='no-referrer'
           href='https://spdx.org/licenses/Unlicense.html'
-          className=' not-italic font-serif font-normal dark:text-peach-800'
+          className=' not-italic font-serif font-normal dark:text-peach-100'
         >
           Unlicense
         </a>
