@@ -16,7 +16,7 @@ const Banner: React.FC<BannerProps> = ({ src = '', alt = '' }) => {
   useEffect(() => {
     setImgSrc(src);
     setAlt(alt);
-    setCaption('Copyright ©2023 by Jeanaica Suplido-Alinsub.');
+    setCaption('Image by Jeanaica Suplido-Alinsub.');
   }, [src, alt]);
 
   return (
