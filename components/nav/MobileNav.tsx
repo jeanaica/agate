@@ -64,11 +64,7 @@ const MobileNav: FC<Props> = ({ isOpen, setIsOpen, isHome }) => {
 
       <div className={`flex justify-between px-5 py-2`}>
         <div className={`flex justify-start flex-1`}>
-          <button
-            className='flex justify-center items-center md:hidden'
-            onClick={setIsOpen}
-          >
-            <Icon icon='menu' type='round' />
+          <button className='flex justify-center items-center md:hidden'>
             {!isHome && (
               <div className='p-4 md:hidden'>
                 <Title asLink={!isHome} />

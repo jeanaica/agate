@@ -29,26 +29,9 @@ const DesktopNav: FC<Props> = ({ isOpen, setIsOpen, isHome }) => {
           </div>
         )}
         <div className='flex'>
-          <ul className={`hidden md:flex flex-1 md:h-[84px] md:justify-end`}>
-            {navJson.map((navItem) => (
-              <li
-                key={navItem.text}
-                className='flex justify-center items-center'
-              >
-                <a
-                  className={`flex w-full p-4 ${
-                    pathname === navItem.href
-                      ? 'italic pointer-events-none opacity-50 cursor-not-allowed'
-                      : 'not-italic'
-                  }`}
-                  href={navItem.href}
-                  aria-disabled={pathname === navItem.href}
-                >
-                  {navItem.text}
-                </a>
-              </li>
-            ))}
-          </ul>
+          <ul
+            className={`hidden md:flex flex-1 md:h-[84px] md:justify-end`}
+          ></ul>
 
           <div className={`flex justify-between w-5/6 md:w-4/5 lg:w-2/3`}>
             <div className={`flex justify-start`}>

@@ -6,18 +6,27 @@ import { useEffect, useState } from 'react';
 interface BannerProps {
   src?: string;
   alt?: string;
+  caption?: string;
 }
 
-const Banner: React.FC<BannerProps> = ({ src = '', alt = '' }) => {
+const Banner: React.FC<BannerProps> = ({
+  src = '',
+  alt = '',
+  caption = '',
+}) => {
   const [imgSrc, setImgSrc] = useState(src);
   const [altValue, setAlt] = useState(alt);
-  const [caption, setCaption] = useState('');
+  const [captionValue, setCaption] = useState(caption);
 
   useEffect(() => {
     setImgSrc(src);
     setAlt(alt);
-    setCaption('Image by Jeanaica Suplido-Alinsub.');
-  }, [src, alt]);
+    if (caption) {
+      setCaption(caption);
+    } else {
+      setCaption('Image by Jeanaica Suplido-Alinsub.');
+    }
+  }, [src, alt, caption]);
 
   return (
     <div className='relative w-screen h-[70vh] rounded-sm overflow-hidden'>
@@ -36,7 +45,7 @@ const Banner: React.FC<BannerProps> = ({ src = '', alt = '' }) => {
         priority
       />
       <caption className='absolute left-4 bottom-0 text-xs opacity-50'>
-        {caption}
+        {captionValue}
       </caption>
     </div>
   );
