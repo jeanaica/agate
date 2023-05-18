@@ -21,7 +21,6 @@ const Banner: React.FC<BannerProps> = ({
   useEffect(() => {
     setImgSrc(src);
     setAlt(alt);
-
     if (caption) {
       setCaption(caption);
     } else {
