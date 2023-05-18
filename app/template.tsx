@@ -10,10 +10,9 @@ import Header from '@/components/header/Header';
 
 type Props = {
   children: React.ReactNode;
-  error: any;
 };
 
-const Template: FC<Props> = ({ children, error }) => {
+const Template: FC<Props> = ({ children }) => {
   const pathname = usePathname();
   const [mounted, setMounted] = useState(false);
 
