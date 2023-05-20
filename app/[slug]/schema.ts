@@ -7,6 +7,7 @@ export const GET_ARTICLE_BY_SLUG = gql`
       content
       title
       banner
+      caption
       updatedAt
       status
       scheduledAt
