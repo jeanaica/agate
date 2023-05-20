@@ -1,13 +1,11 @@
 type Post = {
   title: string;
   createdAt: string;
-  publishedAt: string;
-  banner: string;
+  publishedAt?: string;
+  banner?: string;
+  caption?: string;
   content: string;
-  meta: {
-    description: string;
-    slug: string;
-  };
+  meta: Meta;
 };
 
 type Meta = {

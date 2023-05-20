@@ -111,7 +111,13 @@ export default async function Page({ params }: Props) {
 
   return (
     <main className='flex flex-col items-center gap-5 mb-28'>
-      {post?.banner && <Banner src={post?.banner} alt={meta?.imageAlt} />}
+      {post?.banner && (
+        <Banner
+          src={post?.banner}
+          alt={meta?.imageAlt}
+          caption={post?.caption}
+        />
+      )}
       <div
         className={`flex flex-col text-center items-center my-8 ${
           !post?.banner ? 'mt-16' : ''
