@@ -1,7 +1,7 @@
 type Post = {
   title: string;
   createdAt: string;
-  publishedAt: string;
+  publishedAt?: string;
   banner?: string;
   caption?: string;
   content: string;
