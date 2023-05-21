@@ -98,6 +98,7 @@ export default async function Page({ params }: Props) {
   if (post?.content) {
     clean = purify.sanitize(post?.content, {
       USE_PROFILES: { html: true },
+      ADD_ATTR: ['target'],
     });
   }
 
