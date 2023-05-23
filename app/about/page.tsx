@@ -17,7 +17,10 @@ export default function About() {
     <main className='flex flex-col items-center justify-between py-16'>
       <h1 className='mb-8 font-black'>About</h1>
 
-      <article className='mt-12 prose dark:prose-invert prose-p:mb-12'>
+      <article
+        className='mt-12 prose dark:prose-invert prose-pre:whitespace-pre-wrap prose-pre:break-words prose-pre:overflow-x-hidden
+        prose-p:mb-12 prose-p:text-xl prose-p:leading-[3rem]'
+      >
         <p>
           Hello and welcome to{' '}
           <strong className='font-bold font-sans'>Life in Peach</strong>, my
