@@ -1,4 +1,5 @@
 import 'material-icons/iconfont/material-icons.css';
+import { Analytics } from '@vercel/analytics/react';
 
 import { epilogue, marcellus } from '@/styles/fonts';
 import '@/styles/globals.css';
@@ -24,6 +25,7 @@ export default function RootLayout({
     <html lang='en' className={`${epilogue.variable} ${marcellus.variable}`}>
       <body className='min-h-screen bg-gradient-to-b from-white to-peach-100 dark:from-midnight-900 dark:to-midnight-700 overflow-x-hidden'>
         {children}
+        <Analytics />
       </body>
     </html>
   );
