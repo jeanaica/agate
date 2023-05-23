@@ -16,6 +16,8 @@ export const sharedMetadata = {
   ],
   creator: 'Jeanaica Suplido-Alinsub',
   publisher: 'Jeanaica Suplido-Alinsub',
+  description:
+    'A personal journey of faith, creativity, and wellness. Join as I navigate life as a Christian, artist, and software engineer',
   formatDetection: {
     email: false,
     address: false,
@@ -42,18 +44,34 @@ export const sharedMetadata = {
 export const openGraph: OpenGraph = {
   title: 'Life in Peach',
   description:
-    'Embark on a journey with Life in Peach, where we openly discuss our shared path towards better mental health, building a loving family, creating groundbreaking apps, and fostering a profound, personal bond with a higher power.',
+    'A personal journey of faith, creativity, and wellness. Join as I navigate life as a Christian, artist, and software engineer',
   url: 'https://lifeinpeach.com',
   siteName: 'Life in Peach',
   locale: 'en-US',
   type: 'website',
+  images: [
+    {
+      url: '/logo.png',
+      alt: 'Life in Peach - The Sweet, The Tangy, and The Unexpected',
+      width: 800,
+      height: 600,
+    },
+  ],
 };
 
 export const twitter: Twitter = {
   card: 'summary_large_image',
   title: 'Life in Peach',
   description:
-    'Embark on a journey with Life in Peach, where we openly discuss our shared path towards better mental health, building a loving family, creating groundbreaking apps, and fostering a profound, personal bond with a higher power.',
+    'A personal journey of faith, creativity, and wellness. Join as I navigate life as a Christian, artist, and software engineer',
   site: '@frontendFairy',
   creator: '@frontendFairy',
+  images: [
+    {
+      url: '/logo.png',
+      alt: 'Life in Peach - The Sweet, The Tangy, and The Unexpected',
+      width: 800,
+      height: 600,
+    },
+  ],
 };

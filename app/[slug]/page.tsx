@@ -1,6 +1,7 @@
-import { Metadata } from 'next';
+import { Metadata, ResolvingMetadata } from 'next';
 import { JSDOM } from 'jsdom';
 import DOMPurify from 'dompurify';
+import { ApolloError } from '@apollo/client';
 
 import { apolloClient } from '@/lib/client';
 
@@ -11,7 +12,6 @@ import formatDate from '@/utils/formatDate';
 
 import { openGraph, twitter } from '../shared-metadata';
 import { GET_ARTICLE_BY_SLUG } from './schema';
-import { ApolloError } from '@apollo/client';
 
 export const revalidate = 0;
 
@@ -54,9 +54,15 @@ async function getData(slug: string): Promise<Data> {
   }
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata(
+  { params }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
   // fetch data
   const { meta, post } = await getData(params.slug);
+
+  const previousOGImages = (await parent).openGraph?.images || [];
+  const previousTwitterImages = (await parent).twitter?.images || [];
 
   return {
     title: post?.title,
@@ -65,10 +71,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       ...openGraph,
       type: 'article',
-      images: {
-        url: meta?.image || '',
-        alt: meta?.imageAlt,
-      },
+      images: [
+        {
+          url: meta?.image || '',
+          alt: meta?.imageAlt,
+        },
+        ...previousOGImages,
+      ],
       title: meta?.title,
       description: meta?.description,
       authors: 'Jeanaica Suplido-Alinsub',
@@ -80,10 +89,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       ...twitter,
       title: meta?.title,
       description: meta?.description,
-      images: {
-        url: meta?.image || '',
-        alt: meta?.imageAlt,
-      },
+      images: [
+        {
+          url: meta?.image || '',
+          alt: meta?.imageAlt,
+        },
+        ...previousTwitterImages,
+      ],
     },
   };
 }
