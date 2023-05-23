@@ -143,7 +143,7 @@ export default async function Page({ params }: Props) {
       </div>
       <article
         className='min-h-[300px] mt-12 w-full prose dark:prose-invert prose-pre:whitespace-pre-wrap prose-pre:break-words prose-pre:overflow-x-hidden
-        prose-p:mb-12'
+        prose-p:mb-12 prose-p:text-xl prose-p:leading-[3rem]'
         dangerouslySetInnerHTML={{ __html: clean }}
       />
     </main>
