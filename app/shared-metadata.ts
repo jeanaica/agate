@@ -28,13 +28,17 @@ export const sharedMetadata = {
 
   // robots
   robots: {
-    index: false,
-    follow: true,
+    index: process.env.NEXT_PUBLIC_ENVIRONMENT === 'production',
+    follow: process.env.NEXT_PUBLIC_ENVIRONMENT === 'production',
+    noindex: process.env.NEXT_PUBLIC_ENVIRONMENT === 'staging',
+    nofollow: process.env.NEXT_PUBLIC_ENVIRONMENT === 'staging',
     nocache: true,
     googleBot: {
-      index: true,
-      follow: false,
-      noimageindex: true,
+      index: process.env.NEXT_PUBLIC_ENVIRONMENT === 'production',
+      follow: process.env.NEXT_PUBLIC_ENVIRONMENT === 'production',
+      noindex: process.env.NEXT_PUBLIC_ENVIRONMENT === 'staging',
+      nofollow: process.env.NEXT_PUBLIC_ENVIRONMENT === 'staging',
+      noimageindex: process.env.NEXT_PUBLIC_ENVIRONMENT === 'staging',
       'max-video-preview': -1,
       'max-image-preview': 'large',
       'max-snippet': -1,
