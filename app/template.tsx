@@ -1,12 +1,12 @@
 'use client';
 
 import { FC, useEffect, useState } from 'react';
+import { usePathname } from 'next/navigation';
 
 import Nav from '@/components/nav/Nav';
 import { ThemeProvider } from '@/components/theme/ThemeContext';
-import Footer from '@/components/footer/Footer';
-import { usePathname } from 'next/navigation';
-import Header from '@/components/header/Header';
+import Footer from '@/components/Footer';
+import Header from '@/components/Header';
 
 type Props = {
   children: React.ReactNode;

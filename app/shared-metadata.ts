@@ -2,7 +2,7 @@ import { OpenGraph } from 'next/dist/lib/metadata/types/opengraph-types';
 import { Twitter } from 'next/dist/lib/metadata/types/twitter-types';
 
 export const sharedMetadata = {
-  metadataBase: new URL('https://lifeinpeach.com'),
+  metadataBase: new URL('https://www.lifeinpeach.com'),
   authors: [{ name: 'Jeanaica Suplido-Alinsub', url: 'https://jeanaica.com' }],
   generator: 'Next.js',
   applicationName: 'Life in Peach',
@@ -14,6 +14,16 @@ export const sharedMetadata = {
     'Christian',
     'Technology',
     'Art',
+    'Life in Peach',
+    'Jeanaica',
+    'Suplido',
+    'Jeanaica Suplido',
+    'Jeanaica Suplido-Alinsub',
+    'Alinsub',
+    'Naica',
+    'Software',
+    'Software Engineer',
+    'ReactJS',
   ],
   creator: 'Jeanaica Suplido-Alinsub',
   publisher: 'Jeanaica Suplido-Alinsub',
@@ -50,13 +60,13 @@ export const openGraph: OpenGraph = {
   title: 'Life in Peach',
   description:
     'A personal journey of faith, creativity, and wellness. Join as I navigate life as a Christian, artist, and software engineer',
-  url: 'https://lifeinpeach.com',
+  url: 'https://www.lifeinpeach.com',
   siteName: 'Life in Peach',
   locale: 'en-US',
   type: 'website',
   images: [
     {
-      url: '/logo.png',
+      url: 'https://www.lifeinpeach.com/logo.png',
       alt: 'Life in Peach - The Sweet, The Tangy, and The Unexpected',
       width: 800,
       height: 600,
@@ -73,7 +83,7 @@ export const twitter: Twitter = {
   creator: '@frontendFairy',
   images: [
     {
-      url: '/logo.png',
+      url: 'https://www.lifeinpeach.com/logo.png',
       alt: 'Life in Peach - The Sweet, The Tangy, and The Unexpected',
       width: 800,
       height: 600,

@@ -5,8 +5,8 @@ import { usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
 
 import navJson from './nav.json';
-import Icon from '../icon/Icon';
-import Title from '../title/Title';
+import Icon from '../Icon';
+import Title from '../Title';
 import ThemeToggle from '../theme/ThemeToggle';
 
 const container = {

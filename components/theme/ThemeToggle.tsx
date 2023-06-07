@@ -2,7 +2,7 @@
 import React, { useEffect, useState, KeyboardEvent } from 'react';
 
 import { useTheme } from '@/components/theme/ThemeContext';
-import Icon from '@/components/icon/Icon';
+import Icon from '@/components/Icon';
 
 const ThemeToggle: React.FC = () => {
   const [active, setActive] = useState(false);

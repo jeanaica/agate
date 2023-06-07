@@ -1,5 +1,5 @@
-import Card from '@/components/card/Card';
-import LoadingScreen from '@/components/loading/LoadingScreen';
+import Card from '@/components/Card';
+import LoadingScreen from '@/components/LoadingScreen';
 
 import { apolloClient } from '@/lib/client';
 

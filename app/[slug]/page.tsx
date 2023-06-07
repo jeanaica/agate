@@ -5,12 +5,12 @@ import { ApolloError } from '@apollo/client';
 
 import { apolloClient } from '@/lib/client';
 
-import LoadingScreen from '@/components/loading/LoadingScreen';
-import Banner from '@/components/banner/Banner';
+import LoadingScreen from '@/components/LoadingScreen';
+import Banner from '@/components/Banner';
 
 import formatDate from '@/utils/formatDate';
 
-import { openGraph, twitter } from '../shared-metadata';
+import { openGraph, sharedMetadata, twitter } from '../shared-metadata';
 import { GET_ARTICLE_BY_SLUG } from './schema';
 
 export const revalidate = 0;
@@ -60,14 +60,12 @@ export async function generateMetadata(
 ): Promise<Metadata> {
   // fetch data
   const { meta, post } = await getData(params.slug);
-
-  const previousOGImages = (await parent).openGraph?.images || [];
-  const previousTwitterImages = (await parent).twitter?.images || [];
+  const keywords = meta?.keywords || [];
 
   return {
     title: post?.title,
     description: meta?.description,
-    keywords: meta?.keywords,
+    keywords: [...sharedMetadata.keywords, ...keywords],
     openGraph: {
       ...openGraph,
       type: 'article',
@@ -76,7 +74,12 @@ export async function generateMetadata(
           url: meta?.image || '',
           alt: meta?.imageAlt,
         },
-        ...previousOGImages,
+        {
+          url: 'https://www.lifeinpeach.com/logo.png',
+          alt: 'Life in Peach - The Sweet, The Tangy, and The Unexpected',
+          width: 800,
+          height: 600,
+        },
       ],
       title: meta?.title,
       description: meta?.description,
@@ -94,7 +97,12 @@ export async function generateMetadata(
           url: meta?.image || '',
           alt: meta?.imageAlt,
         },
-        ...previousTwitterImages,
+        {
+          url: 'https://lifeinpeach.com/logo.png',
+          alt: 'Life in Peach - The Sweet, The Tangy, and The Unexpected',
+          width: 800,
+          height: 600,
+        },
       ],
     },
   };
