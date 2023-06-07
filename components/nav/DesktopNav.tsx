@@ -3,7 +3,7 @@ import { usePathname } from 'next/navigation';
 
 import navJson from './nav.json';
 import Icon from '../Icon';
-import Header from '../Header';
+import PageTitle from '../PageTitle';
 import Title from '../Title';
 import ThemeToggle from '../theme/ThemeToggle';
 
@@ -25,7 +25,7 @@ const DesktopNav: FC<Props> = ({ isOpen, setIsOpen, isHome }) => {
       >
         {!isHome && (
           <div className='hidden md:block'>
-            <Header asLink={!isHome} />
+            <PageTitle asLink={!isHome} />
           </div>
         )}
         <div className='flex'>
