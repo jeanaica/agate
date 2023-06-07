@@ -1,11 +1,11 @@
 import { FC } from 'react';
+import { usePathname } from 'next/navigation';
 
 import navJson from './nav.json';
-import { usePathname } from 'next/navigation';
-import Icon from '../icon/Icon';
-import Title from '../title/Title';
+import Icon from '../Icon';
+import Header from '../Header';
+import Title from '../Title';
 import ThemeToggle from '../theme/ThemeToggle';
-import Header from '../header/Header';
 
 type Props = {
   isOpen: boolean;

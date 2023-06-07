@@ -1,4 +1,4 @@
-import Footer from '@/components/footer/Footer';
+import Footer from '@/components/Footer';
 import Nav from '@/components/nav/Nav';
 import { ThemeProvider } from '@/components/theme/ThemeContext';
 

@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import Title from '@/components/title/Title';
+import Title from '@/components/Title';
 
 type Props = {
   asLink?: boolean;
