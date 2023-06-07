@@ -1,6 +1,8 @@
 import { FC } from 'react';
 import Link from 'next/link';
 
+import DateDisplay from './DateDisplay';
+
 type Props = {
   slug?: string;
   title?: string;
@@ -20,9 +22,7 @@ const Card: FC<Props> = ({
         {title}
       </Link>
     </h2>
-    <span className='text-base font-sans opacity-50 font-semibold'>
-      {publishedAt}
-    </span>
+    <DateDisplay dateValue={publishedAt} />
     <span className='mt-4 line-clamp-5'>{description}</span>
   </section>
 );

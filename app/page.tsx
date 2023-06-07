@@ -3,8 +3,6 @@ import LoadingScreen from '@/components/LoadingScreen';
 
 import { apolloClient } from '@/lib/client';
 
-import formatDate from '@/utils/formatDate';
-
 import { GET_ARTICLES_QUERY } from './schema';
 
 export const revalidate = 0;
@@ -29,7 +27,7 @@ async function Home() {
             slug={post?.meta?.slug}
             title={post?.title}
             description={post?.meta?.description}
-            publishedAt={formatDate(post?.publishedAt)}
+            publishedAt={post?.publishedAt}
           />
         ))
       ) : (
