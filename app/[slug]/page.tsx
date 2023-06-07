@@ -7,6 +7,7 @@ import { apolloClient } from '@/lib/client';
 
 import LoadingScreen from '@/components/LoadingScreen';
 import Banner from '@/components/Banner';
+import DateDisplay from '@/components/DateDisplay';
 
 import formatDate from '@/utils/formatDate';
 
@@ -145,9 +146,7 @@ export default async function Page({ params }: Props) {
         }`}
       >
         <h1 className='font-black'>{post?.title}</h1>
-        <span className='text-sm opacity-50'>
-          {formatDate(post?.publishedAt)}
-        </span>
+        <DateDisplay dateValue={post?.publishedAt} />
       </div>
       <article
         className='min-h-[300px] mt-12 w-full prose dark:prose-invert prose-pre:whitespace-pre-wrap prose-pre:break-words prose-pre:overflow-x-hidden
