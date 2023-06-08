@@ -63,7 +63,6 @@ module.exports = {
 
       addBase({
         a: aStyles(theme),
-        'a:hover': aHoverStyles,
         '.dark a': getColor(theme('colors.peach.600')),
         body: {
           color: theme('colors.midnight.900'),

@@ -8,6 +8,7 @@ import navJson from './nav.json';
 import Icon from '../Icon';
 import Title from '../Title';
 import ThemeToggle from '../theme/ThemeToggle';
+import Link from '../Link';
 
 const container = {
   hidden: { height: 0, overflow: 'hidden' },
@@ -42,22 +43,14 @@ const MobileNav: FC<Props> = ({ isOpen, setIsOpen, isHome }) => {
         className={`flex flex-col overflow-hidden w-full md:hidden md:w-0`}
       >
         {navJson.map((navItem) => (
-          <motion.li
-            key={navItem.text}
-            variants={item}
-            className={`hover:bg-peach-700 hover:dark:bg-midnight-800 hover:underline ${
-              pathname === navItem.href
-                ? 'italic pointer-events-none opacity-50 cursor-not-allowed'
-                : 'not-italic'
-            }`}
-          >
-            <a
-              className={`flex px-5  py-4`}
+          <motion.li key={navItem.text} variants={item} className='font-black'>
+            <Link
+              tabIndex={0}
               href={navItem.href}
-              aria-disabled={pathname === navItem.href}
+              isActive={pathname === navItem.href}
             >
               {navItem.text}
-            </a>
+            </Link>
           </motion.li>
         ))}
       </motion.ul>
@@ -65,7 +58,7 @@ const MobileNav: FC<Props> = ({ isOpen, setIsOpen, isHome }) => {
       <div className={`flex justify-between px-5 py-2`}>
         <div className={`flex justify-start flex-1`}>
           <button
-            className='flex justify-center items-center md:hidden'
+            className='flex justify-center items-center md:hidden transition-all duration-500 hover:scale-110'
             onClick={setIsOpen}
           >
             <Icon icon='menu' type='round' />

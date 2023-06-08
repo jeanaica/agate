@@ -2,10 +2,11 @@ import { FC } from 'react';
 import { usePathname } from 'next/navigation';
 
 import navJson from './nav.json';
-import Icon from '../Icon';
 import PageTitle from '../PageTitle';
 import Title from '../Title';
 import ThemeToggle from '../theme/ThemeToggle';
+import Link from '../Link';
+import NavItem from './NavItem';
 
 type Props = {
   isOpen: boolean;
@@ -31,40 +32,24 @@ const DesktopNav: FC<Props> = ({ isOpen, setIsOpen, isHome }) => {
         <div className='flex'>
           <ul className={`hidden md:flex flex-1 md:h-[84px] md:justify-end`}>
             {navJson.map((navItem) => (
-              <li
-                key={navItem.text}
-                className='flex justify-center items-center'
-              >
-                <a
-                  className={`flex w-full p-4 ${
-                    pathname === navItem.href
-                      ? 'italic pointer-events-none opacity-50 cursor-not-allowed'
-                      : 'not-italic'
-                  }`}
+              <NavItem key={navItem.text}>
+                <Link
+                  tabIndex={0}
                   href={navItem.href}
-                  aria-disabled={pathname === navItem.href}
+                  isActive={pathname === navItem.href}
                 >
                   {navItem.text}
-                </a>
-              </li>
+                </Link>
+              </NavItem>
             ))}
           </ul>
 
           <div className={`flex justify-between w-5/6 md:w-4/5 lg:w-2/3`}>
-            <div className={`flex justify-start`}>
-              <button
-                className='flex flex-1 justify-center items-center md:hidden'
-                onClick={setIsOpen}
-              >
-                <Icon icon='menu' type='round' />
-              </button>
-              {!isHome && (
-                <div className='p-4 md:hidden'>
-                  <Title asLink={!isHome} />
-                </div>
-              )}
-            </div>
-
+            {!isHome && (
+              <div className={`flex justify-start p-4 md:hidden`}>
+                <Title asLink={!isHome} />
+              </div>
+            )}
             <div className='flex'>
               <ThemeToggle />
             </div>
