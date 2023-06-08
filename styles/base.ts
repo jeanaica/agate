@@ -9,13 +9,8 @@ export const getColor = (color: string): Record<string, unknown> => ({
 export const aStyles = (theme: ThemeType): Record<string, unknown> => ({
   fontFamily: theme('fontFamily.sans'),
   color: theme('colors.midnight.DEFAULT'),
-  fontWeight: 900,
   cursor: 'pointer',
 });
-
-export const aHoverStyles = {
-  textDecoration: 'no-underline',
-};
 
 export const generateHeaderStyles = (
   theme: ThemeType

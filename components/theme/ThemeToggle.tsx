@@ -56,14 +56,14 @@ const ThemeToggle: React.FC = () => {
         <Icon
           icon='dark_mode'
           type='round'
-          className={`h-10 transform transition-all duration-500 ${
+          className={`h-10 transform transition-all duration-500 hover:scale-125 ${
             active ? 'translate-y-[18px]' : 'translate-y-20'
           }`}
         />
         <Icon
           icon='wb_sunny'
           type='round'
-          className={`h-10 transform transition-all duration-500 ${
+          className={`h-10 transform transition-all duration-500 hover:scale-125 ${
             active ? 'translate-y-20' : '-translate-y-[18px]'
           }`}
         />
