@@ -4,8 +4,8 @@ import { usePathname } from 'next/navigation';
 
 import useDetectOutsideClick from '@/utils/hooks/useDetectOutsideClick';
 
-import MobileNav from './MobileNav';
-import DesktopNav from './DesktopNav';
+import DesktopNav from './desktop/Menu';
+import MobileNav from './mobile/Menu';
 
 const Nav: FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -13,6 +13,10 @@ const Nav: FC = () => {
   const isClickedOutside = useDetectOutsideClick(navRef);
   const pathname = usePathname();
   const isHome = pathname === '/';
+
+  const navStyle = menuOpen
+    ? 'bg-peach-100 dark:bg-midnight-700'
+    : 'bg-white dark:bg-midnight-900';
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -55,14 +59,10 @@ const Nav: FC = () => {
   return (
     <nav
       ref={navRef}
-      className={`w-full flex justify-center items-center flex-col md:flex-row md:justify-between md:items-center  ${
-        menuOpen
-          ? 'bg-peach-100 dark:bg-midnight-700'
-          : 'bg-white dark:bg-midnight-900'
-      }`}
+      className={`w-full flex justify-center items-center flex-col md:flex-row md:justify-between md:items-center ${navStyle}`}
     >
       <MobileNav isHome={isHome} isOpen={menuOpen} setIsOpen={toggleMenu} />
-      <DesktopNav isHome={isHome} isOpen={menuOpen} setIsOpen={toggleMenu} />
+      <DesktopNav />
     </nav>
   );
 };

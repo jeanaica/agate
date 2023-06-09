@@ -36,6 +36,7 @@ const ThemeToggle: React.FC = () => {
   return (
     <div className='flex justify-center self-center items-center h-8 p-4 pr-0 cursor-pointer select-none'>
       <input
+        tabIndex={-1}
         aria-label='dark mode toggle'
         role='switch'
         aria-checked={ariaActive}
@@ -48,22 +49,23 @@ const ThemeToggle: React.FC = () => {
         readOnly
       />
       <label
+        tabIndex={0}
         htmlFor='toggle'
-        className={`relative p-2 overflow-hidden w-10 h-10 rounded-full border-3 flex flex-col items-center justify-center cursor-pointer ${
+        className={`relative p-2 overflow-hidden w-10 h-10 rounded-full border-3 flex flex-col items-center justify-center cursor-pointer transition-all  hover:scale-125 focus:scale-125 ${
           active ? 'bg-black text-blue-300' : 'bg-blue-300 text-yellow-200'
         } select-none`}
       >
         <Icon
           icon='dark_mode'
           type='round'
-          className={`h-10 transform transition-all duration-500 hover:scale-125 ${
+          className={`h-10 transform transition-all duration-500 hover:scale-125 focus:scale-125 ${
             active ? 'translate-y-[18px]' : 'translate-y-20'
           }`}
         />
         <Icon
           icon='wb_sunny'
           type='round'
-          className={`h-10 transform transition-all duration-500 hover:scale-125 ${
+          className={`h-10 transform transition-all duration-500 hover:scale-125 focus:scale-125 ${
             active ? 'translate-y-20' : '-translate-y-[18px]'
           }`}
         />

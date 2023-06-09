@@ -1,4 +1,4 @@
-import Card from '@/components/Card';
+import Card from '@/components/card/Card';
 import LoadingScreen from '@/components/LoadingScreen';
 
 import { apolloClient } from '@/lib/client';
@@ -19,7 +19,7 @@ async function Home() {
   }
 
   return (
-    <main className='flex flex-col items-center'>
+    <section className='flex flex-col items-center'>
       {data?.posts?.length ? (
         data?.posts?.map((post: Post) => (
           <Card
@@ -33,7 +33,7 @@ async function Home() {
       ) : (
         <h5>No articles to display.</h5>
       )}
-    </main>
+    </section>
   );
 }
 

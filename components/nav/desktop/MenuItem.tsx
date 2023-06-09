@@ -4,10 +4,10 @@ type Props = {
   children: ReactNode;
 };
 
-const NavItem: FC<Props> = ({ children }) => {
+const MenuItem: FC<Props> = ({ children }) => {
   return (
     <li className='flex justify-center items-center font-black'>{children}</li>
   );
 };
 
-export default NavItem;
+export default MenuItem;

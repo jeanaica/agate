@@ -1,14 +1,23 @@
 import { FC } from 'react';
+import DateDisplay from './DateDisplay';
 
 type Props = {
-  asLink?: boolean;
+  title?: string;
+  datePublished?: string;
+  hasBanner?: boolean;
 };
 
-const Title: FC<Props> = ({ asLink = false }) => (
-  <h1 className={`font-black ${asLink ? 'text-2xl tracking-normal' : ''}`}>
-    <span className='dark:text-peach-100'>Life in </span>
-    <span className='text-peach'>Peach</span>
-  </h1>
-);
+const Title: FC<Props> = ({ title = '', datePublished = '', hasBanner }) => {
+  const withoutBannerStyle = !hasBanner && 'mt-16';
+
+  return (
+    <div
+      className={`flex flex-col text-center items-center my-8 ${withoutBannerStyle}`}
+    >
+      <h1 className='font-black mb-4'>{title}</h1>
+      {datePublished && <DateDisplay dateValue={datePublished} />}
+    </div>
+  );
+};
 
 export default Title;

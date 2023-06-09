@@ -5,20 +5,23 @@ type Props = {
   href: string;
   tabIndex?: number;
   children?: ReactNode;
-  isActive?: boolean;
+  isDisabled?: boolean;
   className?: string;
 };
 
 const Link: FC<Props> = ({
   href,
-  tabIndex,
+  tabIndex = 0,
   children,
-  isActive,
+  isDisabled,
   className = '',
 }) => {
-  const activeStyle = isActive
-    ? 'cursor-default hover:scale-none'
-    : 'opacity-70 hover:opacity-100 hover:scale-105 focus:scale-105 focus:opacity-100 md:hover:scale-125 md:focus:scale-125';
+  const disabledStyle = isDisabled
+    ? 'opacity-80 hover:scale-none focus:scale-none'
+    : '';
+
+  const defaultStyle =
+    'hover:opacity-100 hover:scale-105 focus:scale-105 focus:opacity-100';
 
   return (
     <NextLink
@@ -26,8 +29,8 @@ const Link: FC<Props> = ({
       tabIndex={tabIndex}
       aria-roledescription={`${href} link`}
       aria-details={`changes the page to ${href}`}
-      aria-disabled={isActive}
-      className={`flex w-full p-4 transform transition-all duration-300 relative ${activeStyle} ${className}`}
+      aria-disabled={isDisabled}
+      className={`flex w-full transform transition-all duration-300 relative ${defaultStyle} ${disabledStyle} ${className}`}
     >
       {children}
     </NextLink>
