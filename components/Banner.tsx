@@ -3,6 +3,8 @@
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
+import Caption from './Caption';
+
 interface BannerProps {
   src?: string;
   alt?: string;
@@ -44,9 +46,7 @@ const Banner: React.FC<BannerProps> = ({
         fill
         priority
       />
-      <caption className='absolute left-4 bottom-0 text-xs opacity-50'>
-        {captionValue}
-      </caption>
+      <Caption text={captionValue} />
     </div>
   );
 };

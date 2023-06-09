@@ -1,13 +1,12 @@
 import { Metadata, ResolvingMetadata } from 'next';
-import { JSDOM } from 'jsdom';
-import DOMPurify from 'dompurify';
 import { ApolloError } from '@apollo/client';
 
 import { apolloClient } from '@/lib/client';
 
 import LoadingScreen from '@/components/LoadingScreen';
 import Banner from '@/components/Banner';
-import DateDisplay from '@/components/DateDisplay';
+import Article from '@/components/Article';
+import Title from '@/components/Title';
 
 import formatDate from '@/utils/formatDate';
 
@@ -111,17 +110,6 @@ export async function generateMetadata(
 
 export default async function Page({ params }: Props) {
   const { loading, meta, post, error } = await getData(params.slug);
-  let clean = '';
-
-  const window = new JSDOM('').window;
-  const purify = DOMPurify(window);
-
-  if (post?.content) {
-    clean = purify.sanitize(post?.content, {
-      USE_PROFILES: { html: true },
-      ADD_ATTR: ['target'],
-    });
-  }
 
   if (loading) {
     return <LoadingScreen />;
@@ -132,7 +120,7 @@ export default async function Page({ params }: Props) {
   }
 
   return (
-    <main className='flex flex-col items-center gap-5 mb-28'>
+    <section className='flex flex-col items-center gap-5 mb-28'>
       {post?.banner && (
         <Banner
           src={post?.banner}
@@ -140,19 +128,12 @@ export default async function Page({ params }: Props) {
           caption={post?.caption}
         />
       )}
-      <div
-        className={`flex flex-col text-center items-center my-8 ${
-          !post?.banner ? 'mt-16' : ''
-        }`}
-      >
-        <h1 className='font-black'>{post?.title}</h1>
-        <DateDisplay dateValue={post?.publishedAt} />
-      </div>
-      <article
-        className='min-h-[300px] mt-12 w-full prose dark:prose-invert prose-pre:whitespace-pre-wrap prose-pre:break-words prose-pre:overflow-x-hidden
-        prose-p:mb-12 prose-p:text-xl prose-p:leading-[3rem]'
-        dangerouslySetInnerHTML={{ __html: clean }}
+      <Title
+        hasBanner={!!post?.banner}
+        title={post?.title}
+        datePublished={post?.publishedAt}
       />
-    </main>
+      <Article content={post?.content} />
+    </section>
   );
 }
