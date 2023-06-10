@@ -19,7 +19,7 @@ async function Home() {
   }
 
   return (
-    <section className='flex flex-col items-center'>
+    <ul className='flex flex-col items-center'>
       {data?.posts?.length ? (
         data?.posts?.map((post: Post) => (
           <Card
@@ -33,7 +33,7 @@ async function Home() {
       ) : (
         <h5>No articles to display.</h5>
       )}
-    </section>
+    </ul>
   );
 }
 
