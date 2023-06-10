@@ -7,9 +7,9 @@ type Props = {
 };
 
 const DateDisplay: FC<Props> = ({ dateValue = '' }) => (
-  <h5 className='text-base font-sans opacity-50 font-semibold'>
+  <span className='text-base font-sans opacity-50 font-semibold'>
     {formatDate(dateValue)}
-  </h5>
+  </span>
 );
 
 export default DateDisplay;

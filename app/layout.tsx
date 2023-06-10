@@ -1,4 +1,3 @@
-import 'material-icons/iconfont/material-icons.css';
 import { Analytics } from '@vercel/analytics/react';
 
 import { epilogue, marcellus } from '@/styles/fonts';

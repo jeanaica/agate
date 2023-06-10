@@ -29,7 +29,7 @@ const Menu: FC<Props> = ({ isOpen, setIsOpen, isHome }) => {
             className={`${hideTitle} p-4 md:hidden`}
           />
         </div>
-        <ThemeToggle />
+        <ThemeToggle type='mobile' />
       </div>
     </div>
   );

@@ -14,7 +14,11 @@ const MenuList: FC = () => {
     <ul className={`hidden md:flex flex-1 md:h-[84px] md:justify-end`}>
       {navJson.map((navItem) => (
         <MenuItem key={navItem.text}>
-          <NavLink href={navItem.href} isActive={pathname === navItem.href}>
+          <NavLink
+            text={navItem.text}
+            href={navItem.href}
+            isActive={pathname === navItem.href}
+          >
             {navItem.text}
           </NavLink>
         </MenuItem>

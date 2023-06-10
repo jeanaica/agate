@@ -1,18 +1,12 @@
-import { FC } from 'react';
+import { FC, ReactNode } from 'react';
 
 type Props = {
-  icon: string;
+  children?: ReactNode;
   className?: string;
-  type?: 'filled' | 'outline' | 'round' | 'sharp' | 'two-tone';
 };
-const Icon: FC<Props> = ({ icon, className, type = 'filled' }) => (
-  <span
-    className={`select-none ${
-      type !== 'filled' ? `material-icons-${type}` : 'material-icons'
-    } ${className}  text-3xl `}
-  >
-    {icon}
-  </span>
+
+const Icon: FC<Props> = ({ children, className }) => (
+  <span className={`select-none ${className}  text-3xl `}>{children}</span>
 );
 
 export default Icon;

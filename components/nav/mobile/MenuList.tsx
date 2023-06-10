@@ -40,6 +40,7 @@ const MenuList: FC<Props> = ({ animate }) => {
         <motion.li key={navItem.text} variants={item} className='font-black'>
           <NavLink
             className='p-4'
+            text={navItem.text}
             href={navItem.href}
             isActive={pathname === navItem.href}
           >

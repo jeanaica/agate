@@ -2,6 +2,7 @@ import { FC, ReactNode } from 'react';
 import NextLink from 'next/link';
 
 type Props = {
+  text: string;
   href: string;
   tabIndex?: number;
   children?: ReactNode;
@@ -10,6 +11,7 @@ type Props = {
 };
 
 const NavLink: FC<Props> = ({
+  text,
   href,
   tabIndex = 0,
   children,
@@ -26,8 +28,8 @@ const NavLink: FC<Props> = ({
     <NextLink
       href={href}
       tabIndex={tabIndex}
-      aria-roledescription={`${href} link`}
-      aria-details={`changes the page to ${href}`}
+      aria-roledescription={`${text} Page Link`}
+      aria-label={`Changes the page to ${text} Page`}
       aria-disabled={isActive}
       className={`flex w-full p-4 transform transition-all duration-300 relative ${activeStyle} ${className}`}
     >
