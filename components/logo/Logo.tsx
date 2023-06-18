@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { usePathname } from 'next/navigation';
+import Link from 'next/link';
 
 import LifeInPeach from './LifeInPeach';
 import TagLine from './TagLine';
@@ -20,19 +21,23 @@ const Logo: FC<Props> = ({ className = '' }) => {
     ? 'transition-all hover:scale-110 hover:ml-4'
     : '';
 
-  const Tag = isSecondaryPage ? 'a' : 'div';
-  const tagAttributes = isSecondaryPage && {
-    href: '/',
-  };
+  if (isSecondaryPage) {
+    return (
+      <Link
+        href='/'
+        className={`flex flex-col ${pageStyle} ${className} ${hoverStyle}`}
+      >
+        <LifeInPeach isSecondaryPage={isSecondaryPage} />
+        <TagLine isSecondaryPage={isSecondaryPage} />
+      </Link>
+    );
+  }
 
   return (
-    <Tag
-      {...tagAttributes}
-      className={`flex flex-col ${pageStyle} ${className} ${hoverStyle}`}
-    >
+    <div className={`flex flex-col ${pageStyle} ${className} ${hoverStyle}`}>
       <LifeInPeach isSecondaryPage={isSecondaryPage} />
       <TagLine isSecondaryPage={isSecondaryPage} />
-    </Tag>
+    </div>
   );
 };
 
