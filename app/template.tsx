@@ -1,6 +1,6 @@
 'use client';
 
-import { FC, useEffect, useState } from 'react';
+import { FC } from 'react';
 import { usePathname } from 'next/navigation';
 
 import Nav from '@/components/nav/Nav';
@@ -14,17 +14,8 @@ type Props = {
 
 const Template: FC<Props> = ({ children }) => {
   const pathname = usePathname();
-  const [mounted, setMounted] = useState(false);
 
   const isHome = pathname === '/';
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) {
-    return null;
-  }
 
   return (
     <ThemeProvider>
